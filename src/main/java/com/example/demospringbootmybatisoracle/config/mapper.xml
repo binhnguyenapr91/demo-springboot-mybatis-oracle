@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demospringbootmybatisoracle.service.UserService">
+    <select id = "list" resultType="com.example.demospringbootmybatisoracle.entity.User">
+        SELECT t.* FROM SYS."USER" t
+    </select>
+
+    <select id = "create" parameterType="String" resultType="com.example.demospringbootmybatisoracle.entity.User">
+        INSERT INTO SYS."USER" (NAME) VALUES (#{name})
+    </select>
+
+    <select id = "query" parameterType="String" resultType="com.example.demospringbootmybatisoracle.entity.User">
+        SELECT t.* FROM SYS."USER" t WHERE NAME LIKE #{keyword}
+    </select>
+</mapper>
